@@ -1,0 +1,51 @@
+Basic Commands
+----------------
+
+- To create a Project : ng new <project_name>
+- To Run              :  ng serve --open
+-To Create Component  : ng g c <component_name>
+
+
+Basic Concepts
+---------------
+
+-Module - To hold Components
+-Components - Part UI (Combination of ts file, html,css, Root Component, App component)
+-To setup Path - Define path in routing component
+-Data binding - data share Within a component
+  One way data Binding 
+  -ts (component) to html (view/template)
+    -string Interpolation {{class}}
+    -property binding [class property]
+
+  -html(view) to ts(component)
+   - event Binding = (click)
+   -event binding using $event
+    event binding using template variable = #variable_name
+
+  Two Way Data Binding - using [(ngModel)] directives
+    import formsModule to module file, then use [(ngModel)] = "class property"
+    Angular directives : are classes that add additional behaiviour to html
+            -prebuilt directives
+                  - component directives: component selector used to display component template
+                  - ngModel directive: used to manage  form controls and bind the control’s value to a class property. 
+
+            -structural directives: used to add or remove elements from angular applications
+             - *ngIf = "conditional rendering"
+
+    -dependency injection : communicate between two components 
+          when two classes are dependent, then one class can access the others property and function,it should be provided in constructor
+          -syntax : access-specifier variable_name : dependent-class-name   
+
+
+
+    -handling asynchronus functions : rxjs library
+     observable : 
+        - subscribe(callback/observer object) :resolves state
+      -api call :use http methods in httpclient class
+                : import httpclientModule in your module file 
+
+
+     Angular pipes
+     --------------
+     Use pipes to transform strings, currency amounts, dates, and other data for display. Pipes are simple functions to use in template expressions to accept an input value and return a transformed value. Pipes are useful because you can use them throughout your application, while only declaring each pipe once           

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 bg-dark d-flex flex-column p-3">
+      <a style="text-decoration: none;color: whitesmoke;" class="fw-bolder mb-3" routerLink="/dashboard">HOME</a>
+      <a style="text-decoration: none;color: whitesmoke;" class="fw-bolder mb-3" routerLink="/users">USERS</a>
+    </div>
+    <div class="col-lg-10">
+
+      <div class="d-flex align-items-center justify-content-center flex-column" style="height: 92vh;">
+        <h2>Edit User form</h2>
+
+        <form #editUserForm="ngForm" class="border rounded p-3 w-75 mt-5">
+          <div class="form-floating mb-3">
+            <input name="empId" [(ngModel)]="user.empId" type="text" class="form-control" id="floatingInputId" placeholder="Id" required pattern="[a-zA-Z0-9]*" #empid="ngModel">
+            <label for="floatingInputId">Id</label>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="empid.invalid&&empid.touched">invalid Employee</div>
+
+          <div class="form-floating mb-3">
+            <input  name="name" [(ngModel)]="user.name" type="text" class="form-control" id="floatingInputname" placeholder="Username" required pattern="[a-zA-Z0-9]*" #name="ngModel">
+            <label for="floatingInputname">Username</label>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="name.invalid&&name.touched">invalid Name</div>
+
+          <div class="form-floating mb-3">
+            <input  type="email" class="form-control" id="floatingInputemail" placeholder="Enter Your Email"  name="email" [(ngModel)]="user.email" required #email="ngModel">
+            <label for="floatingInputemail">Email</label>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="email.invalid&&email.touched">invalid Email</div>
+
+          <div class="form-floating mb-3">
+            <select class="form-control" id="floatingInputstatus" name="status" [(ngModel)]="user.status" required #status="ngModel">
+              <option value="0">Active</option>
+              <option value="1">Inactive</option>
+            </select>
+            <label for="floatingInputstatus">Status</label>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="status.invalid&&status.touched">invalid Status</div>
+
+          <div class="text-center " >
+            <button type="button"  (click)="cancel(user.id)" class="btn btn-warning text-light m-3 ">Cancel</button>
+            <button type="submit" [disabled]="editUserForm.invalid" (click)="updateUser(user.id)" class="btn btn-success text-light">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
